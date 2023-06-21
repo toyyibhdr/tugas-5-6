@@ -4,16 +4,6 @@ import { BiPlus } from "react-icons/bi";
 import { BiMinus } from "react-icons/bi";
 import { AiOutlineDelete } from "react-icons/ai";
 
-//tambah depan
-//tambah belakang
-//ubahnama id
-//tambah harga dari id
-//kurang harga dari id
-//hapus depan
-//hapus belakang
-//hapus dari id
-//hapus semua
-
 const App = () => {
   const [id, setId] = useState("");
   const [idd, setIdd] = useState("");
@@ -116,14 +106,39 @@ const App = () => {
     setProducts([]);
   };
 
+  const styleDash = {
+    display: "flex",
+    gap: "15px",
+  };
+
+  const styleForm = {
+    color: "black",
+    backgroundColor: "pink",
+    width: "200px",
+    height: "fit-content",
+    gap: "20px",
+    padding: "15px",
+    textAlign: "center",
+    border: "10px solid white",
+    borderRadius: "20px",
+    display: "flex",
+    flexDirection: "column",
+  };
+
+  const styleButton = {
+    padding: "5px 10px",
+    backgroundColor: "lightgreen",
+    borderRadius: "5px",
+  };
+
+  const styleDivbut = {
+    display: "flex",
+    justifyContent: "space-between",
+  };
+
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          gap: "15px",
-        }}
-      >
+      <div style={styleDash}>
         <div>
           {products.map((value, index) => {
             return (
@@ -137,19 +152,7 @@ const App = () => {
           })}
         </div>
 
-        <div
-          style={{
-            color: "black",
-            backgroundColor: "pink",
-            width: "200px",
-            height: "300px",
-            gap: "20px",
-            padding: "15px",
-            textAlign: "center",
-            border: "10px solid white",
-            borderRadius: "20px",
-          }}
-        >
+        <div style={styleForm}>
           <h3>Tambah</h3>
           <label htmlFor="">ID</label>
           <input
@@ -170,31 +173,19 @@ const App = () => {
             onChange={(x) => setPrice(parseInt(x.target.value))}
           />
 
-          <div>
-            <button onClick={handleFront}>
+          <div style={styleDivbut}>
+            <button style={styleButton} onClick={handleFront}>
               <BiPlus />
               Depan
             </button>
-            <button onClick={handleBack}>
+            <button style={styleButton} onClick={handleBack}>
               <BiPlus />
               Belakang
             </button>
           </div>
         </div>
 
-        <div
-          style={{
-            color: "black",
-            backgroundColor: "pink",
-            width: "200px",
-            height: "300px",
-            gap: "20px",
-            padding: "15px",
-            textAlign: "center",
-            border: "10px solid white",
-            borderRadius: "20px",
-          }}
-        >
+        <div style={styleForm}>
           <h3>Edit/Hapus Berdasarkan ID</h3>
           <label htmlFor="">ID</label>
           <input
@@ -214,47 +205,34 @@ const App = () => {
               )
             }
           />
-
-          <div>
-            <h2>Harga :</h2>
-            <button onClick={handleEditMin}>
+          <h2>Harga :</h2>
+          <div style={styleDivbut}>
+            <button style={styleButton} onClick={handleEditMin}>
               <BiMinus />
               Kurang Harga
             </button>
-            <button onClick={handleEditPlus}>
+            <button style={styleButton} onClick={handleEditPlus}>
               <BiPlus />
               Tambah Harga
             </button>
-            <button onClick={deleteId}>
+            <button style={styleButton} onClick={deleteId}>
               <AiOutlineDelete />
               Hapus
             </button>
           </div>
         </div>
 
-        <div
-          style={{
-            color: "black",
-            backgroundColor: "pink",
-            width: "200px",
-            height: "300px",
-            gap: "20px",
-            padding: "15px",
-            textAlign: "center",
-            border: "10px solid white",
-            borderRadius: "20px",
-          }}
-        >
+        <div style={styleForm}>
           <h3>Hapus</h3>
-          <button onClick={deleteFront}>
+          <button style={styleButton} onClick={deleteFront}>
             <AiOutlineDelete />
             Depan
           </button>
-          <button onClick={deleteBack}>
+          <button style={styleButton} onClick={deleteBack}>
             <AiOutlineDelete />
             Belakang
           </button>
-          <button onClick={deleteAll}>
+          <button style={styleButton} onClick={deleteAll}>
             <AiOutlineDelete />
             Semua
           </button>
